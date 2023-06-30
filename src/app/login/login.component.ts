@@ -9,15 +9,12 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   login = this.fb.group({
-    email: [null, Validators.required],
-    password: [null, Validators.required]
+    email: ['',[ Validators.required]],
+    password: ['',[ Validators.required]]
    
   });
 
-  authRequest:any={
-    "email":"sai@gmail.com",
-    "password":"123456"
-  };
+
   constructor(private service:JwtclientService,private fb: FormBuilder){}
   ngOnInit() {
   
@@ -25,8 +22,19 @@ export class LoginComponent implements OnInit {
 
  
 
-  onSubmit(): void {
-    alert('Thanks!');
+  onSubmit() {
+    if(this.login.valid){
+      this.service.login(this.login.value).subscribe(
+        result=>{
+          console.log(result.token);
+          alert(result.message)
+        }
+       
+
+         
+      )
+    }
+   
   }
 
 }

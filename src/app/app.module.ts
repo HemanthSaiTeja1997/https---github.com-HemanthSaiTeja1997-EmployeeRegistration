@@ -17,7 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 
@@ -45,6 +45,7 @@ import { EmployeeDetailsComponent } from './employee-details/employee-details.co
     MatRadioModule,
     MatCardModule,
     MatTableModule,
+    FormsModule,
     ReactiveFormsModule
   ],
   providers: [],

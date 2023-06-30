@@ -18,5 +18,10 @@ storeData(data1:any){
   return this.http.post("http://localhost:8086/signup",data1);
 }
 
+login(data: any):Observable<any>{
+  return this.http.post("http://localhost:8086/login",data);
+}
+
+
  
 }
