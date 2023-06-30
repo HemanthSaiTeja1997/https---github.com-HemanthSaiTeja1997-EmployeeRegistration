@@ -1,0 +1,78 @@
+<form [formGroup]="register" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Employee Registration </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+      
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="ecode" formControlName="ecode">
+            <mat-error *ngIf="register.controls['ecode'].hasError('required')">
+              Employee Code is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="register.controls['ecode'].hasError('minlength')">
+              atleast 1 Charater <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Email" formControlName="email">
+            <mat-error *ngIf="register.controls['email'].hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="register.controls['email'].hasError('minlength')">
+              Atleast 10 charateres Required
+            </mat-error>
+            <mat-error *ngIf="register.controls['email'].hasError('pattern')">
+              Start with [Aa-Zz]/+/. + @gmail.com
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Password" formControlName="password">
+            <mat-error *ngIf="register.controls['password'].hasError('required')">
+             Password is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="register.controls['password'].hasError('minlength')">
+              Atleast 10 charateres Required
+             </mat-error>
+             <mat-error *ngIf="register.controls['password'].hasError('pattern')">
+              Start with [Aa-Zz], atleast one from each /[0-9]/[#?!@$%^&*-]
+             </mat-error>
+          </mat-form-field>
+       
+         
+          <mat-form-field class="full-width">
+            <input matInput placeholder="ename" formControlName="ename">
+            <mat-error *ngIf="register.controls['ename'].hasError('required')">
+              Employee Name is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="register.controls['ename'].hasError('minlength')">
+              Atleast 5 charateres Required
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Department" formControlName="department">
+            <mat-error *ngIf="register.controls['department'].hasError('required')">
+              Department is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="register.controls['department'].hasError('minlength')">
+              Atleast 2 charateres <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    
+  
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

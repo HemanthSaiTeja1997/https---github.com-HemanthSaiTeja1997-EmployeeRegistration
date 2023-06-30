@@ -1,0 +1,41 @@
+
+<!-- <div class="box" *ngFor='let x of EmployeeData'>
+    <h3>EmployeeCode : {{x.ecode}}</h3>
+    <h3>Employee Name : {{x.ename}}</h3>
+    <h3>EmailId : {{x.email}}</h3>
+    <h3>Department : {{x.department}}</h3>
+</div> -->
+
+<mat-card-title class="header">Employee Details </mat-card-title>
+<table mat-table [dataSource]="EmployeeData" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+          
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> EmployeeCode </th>
+      <td mat-cell *matCellDef="let element"> {{element.ecode}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.ename}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="department">
+      <th mat-header-cell *matHeaderCellDef> Department </th>
+      <td mat-cell *matCellDef="let element"> {{element.department}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
